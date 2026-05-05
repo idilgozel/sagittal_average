@@ -10,7 +10,12 @@ dependencies = [
   "numpy",
 ]
 
+[project.scripts]
+average="command:main"
+
 [tool.hatch.build.targets.wheel]
 include = [
   "sagittal_brain.py",
+  "command.py",
+  
 ]
