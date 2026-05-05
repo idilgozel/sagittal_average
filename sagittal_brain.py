@@ -3,7 +3,7 @@ from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 import numpy as np
 
 
-def run_averages(file_input='brain_sample.csv', file_output='brain_average.csv'):
+def run_averages(file_input="brain_sample.csv", file_output="brain_average.csv"):
     """
     Calculates the average through the coronal planes
     The input file should has as many columns as coronal planes
@@ -12,17 +12,14 @@ def run_averages(file_input='brain_sample.csv', file_output='brain_average.csv')
     The result is the average for each sagittal/horizontal plane (rows)
     """
     # Open the file to analyse
-    planes = np.loadtxt(file_input, dtype=float,  delimiter=',')
+    planes = np.loadtxt(file_input, dtype=float, delimiter=",")
 
     # Calculates the averages through the sagittal/horizontal planes
     # and makes it as a row vector
-    #Fix sagittal_brain.py (as you may remember from last week,
+    # Fix sagittal_brain.py (as you may remember from last week,
     # the code wrongly averages over the columns, not the rows),
     # make sure the test passes and commit these changes.
     averages = planes.mean(axis=1)[np.newaxis, :]
 
     # write it out on my file
-    np.savetxt(file_output, averages, fmt='%.8f', delimiter=',')
-
-
-
+    np.savetxt(file_output, averages, fmt="%.8f", delimiter=",")

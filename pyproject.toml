@@ -17,5 +17,5 @@ average="command:main"
 include = [
   "sagittal_brain.py",
   "command.py",
-  
+
 ]
