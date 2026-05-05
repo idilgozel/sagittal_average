@@ -5,13 +5,14 @@ import sagittal_brain as sb
 
 
 def test_run_averages():
-    sample_data = np.array([[0., 0., 0], [4., 5., 6.], [7., 8., 9.]]) 
+    sample_data = np.zeros((20,20)) 
+    sample_data[0,0] = 1
     np.savetxt("brain_sample.csv", sample_data, fmt='%.1f', delimiter=',')
     sb.run_averages("brain_sample.csv", "brain_average.csv" )
     result=np.loadtxt("brain_average.csv", delimiter=',')
 
-    expected = np.array([3.66666667, 4.33333333, 5.0])
-    np.allclose(result, expected)
+    expected = np.array([1.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.])
+    assert np.testing.assert_array_equal(result, expected)
 
 
 
